@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="replaces">Frase</label> <br>
+        <input type="text" placeholder="Introduce frase" id="replaces">
+        <hr>
+    </div>
+    <div>
+        <div id="textReplace">
+            
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const inputReplaces = document.getElementById('replaces');
+        const divTextReplace = document.getElementById('textReplace');
+
+        inputReplaces.addEventListener('input', function(event) {
+            let text = event.target.value;
+            let textRep = text
+                .replace("JS", "JavaScript")
+                .replace("&", "&amp")
+                .replace(/"/g, "&quot")
+                .replace(/'/g, "&apos")
+                .replace("<", "&lt")
+                .replace(">", "&gt")
+                .replace("TS", "TypeScript");
+            divTextReplace.textContent = textRep;
+        });
+
+    });
+</script>
+</html>
